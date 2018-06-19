@@ -1,0 +1,21 @@
+{"intents": [
+    {"tag": "saudacao",
+     "patterns": ["olá", "Como você está?", "Oi", "bom dia", "boa noite"],
+     "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+     "context_set": ""
+    },
+    {"tag": "adeus",
+     "patterns": ["Adeus", "Tchau", "Até mais"],
+     "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+    },
+    {"tag": "obrigado",
+     "patterns": ["Obrigado", "Muito obrigado"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {"tag": "descobriu",
+     "patterns": ["quem descobriu o brasil?", "o brasil foi descoberto por quem?", "quem descobriu o brasil","quem descobriu o brasil?","quem descobriu o brasil?","quem descobriu o brasil?","quem descobriu o brasil",
+                "quem descobriu o brasil?","quem descobriu o brasil?","quem descobriu o brasil?","quem descobriu o brasil?"],
+     "responses": ["Pedro"]
+    }
+]
+}
