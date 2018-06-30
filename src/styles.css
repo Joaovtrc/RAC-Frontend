@@ -1,20 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
-body { margin: 0; }
-
-
-.flex-row{
-    display: flex;
-    flex-direction: row;
+body {
+  margin: 0;
 }
 
-.flex-column{
-    display: flex;
-    flex-direction: column;
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.fixed-fab{
-    position: fixed !important;
-    bottom: 16px;
-    right: 16px;
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-fab {
+  position: fixed !important;
+  bottom: 16px;
+  right: 16px;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
 }
