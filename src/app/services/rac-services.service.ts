@@ -15,7 +15,11 @@ export class RacService {
 
   //TODO: Implement POST from backend
   public postAnswers(answers){
-    return this.http.post(Strings.mainURL.concat(Strings.answers), answers, { observe: 'response' });
+    return this.http.post(Strings.mainURL.concat(Strings.postIntents), answers, { observe: 'response' });
+  }
+
+  public deleteAnswer(answerId){
+    return this.http.delete(Strings.mainURL.concat(Strings.deleteAnswer + answerId),{ observe: 'response' })
   }
 
 

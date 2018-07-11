@@ -10,6 +10,7 @@ import { TeacherQuestionsComponent } from './components/teacher/teacher-question
 import { TeacherMainComponent } from './components/teacher/teacher-main/teacher-main.component';
 import { TeacherAnswersComponent } from './components/teacher/teacher-answers/teacher-answers.component';
 import { TeacherDashboardComponent } from './components/teacher/teacher-dashboard/teacher-dashboard.component';
+import { DialogGenericComponent } from './components/dialogs/dialog-generic/dialog-generic.component';
 
 
 const appRoutes: Routes = [
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     TeacherQuestionsComponent,
     TeacherMainComponent,
     TeacherAnswersComponent,
-    TeacherDashboardComponent
+    TeacherDashboardComponent,
+    DialogGenericComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,9 @@ const appRoutes: Routes = [
     SharedModuleModule.forRoot(),
     RouterModule.forRoot(appRoutes, { useHash: true }),
 
+  ],
+  entryComponents: [
+    DialogGenericComponent
   ],
   providers: [
     RacService

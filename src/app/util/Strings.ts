@@ -9,8 +9,10 @@ export class Strings {
 
     //Intents
     public static get getIntents(): string {return 'api/Intents'};
+    public static get postIntents(): string {return 'api/insertIntent'};
 
     //Answers
     public static get answers(): string {return 'api/Answers'};
+    public static get deleteAnswer(): string {return 'api/deleteAnswer/'};// /id
 
 }

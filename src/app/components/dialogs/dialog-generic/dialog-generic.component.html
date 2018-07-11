@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{data.Title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <span>{{data.Description}}</span>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{data.CancelButton}}</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button color="warn" (click)="returnAndClose()">{{data.AcceptButton}}</button>
+</mat-dialog-actions>

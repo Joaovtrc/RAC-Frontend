@@ -20,7 +20,7 @@
             <button (click)="editAnswer(indexIntent,indexAnswer)" mat-icon-button color="accent" style="margin: auto;">
                 <mat-icon aria-label="Editar">edit</mat-icon>
             </button>
-            <button (click)="deleteAnswer(indexIntent,indexAnswer)" mat-icon-button color="warn" style="margin: auto;">
+            <button (click)="deleteAnswer(intent,answer)" mat-icon-button color="warn" style="margin: auto;">
                 <mat-icon aria-label="Deletar">delete</mat-icon>
             </button>
           </mat-list-item>
@@ -29,7 +29,7 @@
         <div *ngIf="isAdding[indexIntent]" class="flex-row add-answer-field">
           <mat-form-field style="width: 100%">
             <mat-label>Adicionar resposta</mat-label>
-            <input [(ngModel)]="addAnswerList[indexIntent]" matInput placeholder="Resposta" (keyup.enter)="addAnswerList[indexIntent]">
+            <input [(ngModel)]="newResponse.response" matInput placeholder="Resposta" (keyup.enter)="addAnswerList[indexIntent]">
           </mat-form-field>
           <button (click)="addAnswer(indexIntent)" mat-icon-button color="primary" style="margin: auto;">
             <mat-icon aria-label="Example icon-button with a heart icon">send</mat-icon>

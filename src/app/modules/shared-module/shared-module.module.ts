@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, 
          MatListModule,MatCardModule,MatProgressSpinnerModule,MatFormFieldModule,
-         MatInputModule,} from '@angular/material';
+         MatInputModule,MatDialogModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -22,6 +22,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
   ],
   declarations: [],
   exports: [
@@ -37,6 +38,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
   ]
 })
 
