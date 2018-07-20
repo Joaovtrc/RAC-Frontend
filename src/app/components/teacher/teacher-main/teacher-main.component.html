@@ -12,6 +12,7 @@
       <a mat-list-item [routerLink]="[{outlets: {teacher: ['questions']}}]">Perguntas</a>
       <a mat-list-item [routerLink]="[{outlets: {teacher: ['dashboard']}}]">Dashboard</a>
       <a mat-list-item [routerLink]="[{outlets: {teacher: ['dashboard']}}]">Alunos</a>
+      <a mat-list-item [routerLink]="[{outlets: {teacher: ['chat']}}]">RAC</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="main-content">
@@ -26,6 +27,9 @@
       </button>
       <span>RAC</span>
     </mat-toolbar>
-    <router-outlet name="teacher"></router-outlet>
+    <div class="sidenav-container">
+    <router-outlet style="height: 100%" name="teacher"></router-outlet>
+
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

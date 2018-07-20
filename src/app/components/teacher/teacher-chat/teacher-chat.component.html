@@ -1,0 +1,30 @@
+<div *ngIf="!loading" class="main-content-outlet flex-column">
+  <div class="chat flex-grow1">
+
+    <mat-chip-list #chatList class="chat-list mat-chip-list-stacked mat-typography" aria-orientation="vertical">
+      <ng-template ngFor let-conversation [ngForOf]="user.conversations">
+        <mat-chip style="width: auto" selected [color]="primary">
+          {{conversation.question}}
+        </mat-chip>
+        <mat-chip style="width: auto; align-self: flex-end;">
+          {{conversation.response.response}}
+        </mat-chip>
+      </ng-template>
+
+    </mat-chip-list>
+  </div>
+
+  <div class="send-message flex-row">
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Perguntar</mat-label>
+      <input [(ngModel)]="newQuestion" matInput placeholder="Digite uma pergunta!" (keyup.enter)="sendQuestionRAC()">
+    </mat-form-field>
+
+    <button (click)="sendQuestionRAC()" mat-icon-button color="accent">
+      <mat-icon aria-label="Enviar mensagem">send</mat-icon>
+    </button>
+
+  </div>
+
+</div>

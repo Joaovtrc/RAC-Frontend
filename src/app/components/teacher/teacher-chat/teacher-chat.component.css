@@ -1,0 +1,18 @@
+.send-message {
+  align-self: flex-end;
+  bottom: 0px;
+  width: 100%;
+  align-items: center;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 16px;
+  height: calc(100% - 85px);
+}
+
+.chat-list {
+  overflow: scroll;
+  overflow-x: hidden;
+}

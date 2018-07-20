@@ -15,7 +15,18 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.flex-grow1{
+  flex-grow: 1;
+}
+.flex-grow2{
+  flex-grow: 2;
+}
+.flex-grow3{
+  flex-grow: 3;
+}
+.flex-grow4{
+  flex-grow: 4;
+}
 .fixed-fab {
   position: fixed !important;
   bottom: 16px;
@@ -24,4 +35,10 @@ body {
 
 .flex-spacer {
   flex: 1 1 auto;
+}
+
+.main-content-outlet{
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
 }

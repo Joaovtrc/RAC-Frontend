@@ -18,7 +18,7 @@ export class TeacherQuestionsComponent implements OnInit {
 
   ngOnInit() {
     this.services.getIntents().subscribe(res =>{
-      this.intents = res.intents;
+      this.intents = res;
       console.log(this.intents);
       this.loading = false
     })

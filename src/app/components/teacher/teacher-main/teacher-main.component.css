@@ -1,9 +1,18 @@
 .sidenav-container {
-  height: 100%;
+  height: calc(100% - 64px);
 }
 
 .sidenav {
   width: 200px;
-  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
 }
 
+.main-content {
+  height: 100vh;
+}
+
+.main-toolbar {
+  position: fixed;
+  top: 0px;
+  z-index: inherit;
+}

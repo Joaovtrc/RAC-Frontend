@@ -11,6 +11,8 @@ import { TeacherMainComponent } from './components/teacher/teacher-main/teacher-
 import { TeacherAnswersComponent } from './components/teacher/teacher-answers/teacher-answers.component';
 import { TeacherDashboardComponent } from './components/teacher/teacher-dashboard/teacher-dashboard.component';
 import { DialogGenericComponent } from './components/dialogs/dialog-generic/dialog-generic.component';
+import { TeacherChatComponent } from './components/teacher/teacher-chat/teacher-chat.component';
+import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
 
 
 const appRoutes: Routes = [
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
      {path: 'answers', component: TeacherAnswersComponent, outlet: 'teacher'},
      {path: 'questions', component: TeacherQuestionsComponent, outlet: 'teacher'},
      {path: 'dashboard', component: TeacherDashboardComponent, outlet: 'teacher'},
+     {path: 'chat', component: TeacherChatComponent, outlet: 'teacher'},
     ]
 
     },
@@ -35,7 +38,9 @@ const appRoutes: Routes = [
     TeacherMainComponent,
     TeacherAnswersComponent,
     TeacherDashboardComponent,
-    DialogGenericComponent
+    DialogGenericComponent,
+    TeacherChatComponent,
+    ScrollTrackerDirective
   ],
   imports: [
     BrowserModule,
