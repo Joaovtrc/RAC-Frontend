@@ -1,0 +1,10 @@
+.chat {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+}
+
+.chat-list {
+  overflow: scroll;
+  overflow-x: hidden;
+}

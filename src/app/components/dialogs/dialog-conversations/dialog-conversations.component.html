@@ -1,0 +1,13 @@
+<div class="chat flex-grow1">
+    <mat-chip-list #chatList class="chat-list mat-chip-list-stacked mat-typography" aria-orientation="vertical">
+      <ng-template ngFor let-conversation [ngForOf]="data.conversations">
+        <mat-chip style="width: auto" selected [color]="primary">
+          {{conversation.question}}
+        </mat-chip>
+        <mat-chip style="width: auto; align-self: flex-end;">
+          {{conversation.response.response}}
+        </mat-chip>
+      </ng-template>
+
+    </mat-chip-list>
+  </div>

@@ -30,7 +30,8 @@ export class TeacherChatComponent implements OnInit {
   sendQuestionRAC(){
     if(this.newQuestion != ''){
       let question = {};
-      question['question'] = this.newQuestion;
+      question['question'] = this.newQuestion.replace(/['!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_`{|}~']/g,"").replace(/\s{2,}/g," ");
+      ;
       question['idUser'] = 1;  
       this.newQuestion = ''; 
       this.services.chatBotResponse(question).subscribe(res =>{
@@ -50,7 +51,7 @@ export class TeacherChatComponent implements OnInit {
   private scrollChatListToBottom() {
     setTimeout(() => {
       this.chatList._elementRef.nativeElement.scrollTop = this.chatList._elementRef.nativeElement.scrollHeight;
-    }, 500);
+    }, 1);
   }
 
 }

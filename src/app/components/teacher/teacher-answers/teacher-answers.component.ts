@@ -13,8 +13,6 @@ import { DialogGenericComponent } from '../../dialogs/dialog-generic/dialog-gene
 export class TeacherAnswersComponent implements OnInit {
   isAdding: Array<boolean> = new Array<boolean>();
   newResponse: Response = new Response();
-
-  addAnswerList: Array<Response> = new Array<Response>();
   loading: boolean = true;
   intents: Array<Intent> = new Array<Intent>();
   sendingQuestions: boolean = false;
@@ -32,13 +30,22 @@ export class TeacherAnswersComponent implements OnInit {
     })
   }
 
+  changeEditing(indexIntent){
+    for (let i = 0; i < this.isAdding.length; i++) {
+      this.isAdding[i] = false;
+      
+    }
+    this.isAdding[indexIntent] = true; 
+    this.newResponse = new Response();
+  }
 
   addAnswer(indexIntent){
-    this.newResponse.id = -1;
-    this.intents[indexIntent].responses.push(this.newResponse);    
-    this.newResponse = new Response();
-    this.isAdding[indexIntent] = false;
-    console.error("IMPLEMENT")
+    if(this.newResponse.response.replace(/\s/g, "") != "" && this.newResponse.response != undefined){
+      this.newResponse.id = -1;
+      this.intents[indexIntent].responses.push(this.newResponse);    
+      this.newResponse = new Response();
+      this.isAdding[indexIntent] = false;
+    }
   }
 
   editAnswer(indexIntent, indexAnswer){
@@ -72,9 +79,6 @@ export class TeacherAnswersComponent implements OnInit {
 
       }
     });
-
-
-
   }
 
   saveAnswers(indexIntent){
@@ -83,7 +87,7 @@ export class TeacherAnswersComponent implements OnInit {
     this.intents[indexIntent].context_filter = '';
     this.intents[indexIntent].context_set = '';
     
-    this.services.postAnswers(this.intents[indexIntent]).subscribe(res =>{
+    this.services.postAnswersPatterns(this.intents[indexIntent]).subscribe(res =>{
       this.sendingQuestions = false;
       console.log(res);      
     });
@@ -98,4 +102,5 @@ export class TeacherAnswersComponent implements OnInit {
       this.loading = false
     })
   }
+  
 }

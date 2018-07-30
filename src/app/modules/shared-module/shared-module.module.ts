@@ -1,16 +1,17 @@
 import { NgModule ,ModuleWithProviders} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, 
          MatListModule,MatCardModule,MatProgressSpinnerModule,MatFormFieldModule,
-         MatInputModule,MatDialogModule,MatChipsModule,MatSnackBarModule} from '@angular/material';
+         MatInputModule,MatDialogModule,MatChipsModule,MatSnackBarModule,MatTooltipModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
     MatToolbarModule,
@@ -25,10 +26,12 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatDialogModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   declarations: [],
   exports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
     MatToolbarModule,
@@ -42,7 +45,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatInputModule,
     MatDialogModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule,
   ]
 })
 

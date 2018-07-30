@@ -30,7 +30,7 @@ body {
 .fixed-fab {
   position: fixed !important;
   bottom: 16px;
-  right: 16px;
+  right: 18px;
 }
 
 .flex-spacer {

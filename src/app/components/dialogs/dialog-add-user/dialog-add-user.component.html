@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Adicionar novo aluno</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="groupForm" class="flex-column mat-typography" style="width: 100%;">
+    <mat-form-field color="primary">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="newStudent.name" matInput formControlName="name" required placeholder="DIGITE O NOME">
+      <mat-error *ngIf="name.invalid">{{getErrorMessage("name")}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Usuário</mat-label>
+      <input [(ngModel)]="newStudent.username" matInput formControlName="username" required placeholder="DIGITE O EMAIL">
+      <mat-error *ngIf="username.invalid">{{getErrorMessage("username")}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input [(ngModel)]="newStudent.password" type="password" matInput formControlName="password" [required]="requiredPassword"
+        placeholder="DIGITE O SENHA">
+      <mat-error *ngIf="password.invalid">{{getErrorMessage("password")}}</mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="addUser()">Adicionar novo aluno</button>
+</mat-dialog-actions>

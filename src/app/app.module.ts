@@ -13,6 +13,10 @@ import { TeacherDashboardComponent } from './components/teacher/teacher-dashboar
 import { DialogGenericComponent } from './components/dialogs/dialog-generic/dialog-generic.component';
 import { TeacherChatComponent } from './components/teacher/teacher-chat/teacher-chat.component';
 import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
+import { TeacherStudentsComponent } from './components/teacher/teacher-students/teacher-students.component';
+import { DialogConversationsComponent } from './components/dialogs/dialog-conversations/dialog-conversations.component';
+import { DialogAddUserComponent } from './components/dialogs/dialog-add-user/dialog-add-user.component';
+import { DialogAddIntentComponent } from './components/dialogs/dialog-add-intent/dialog-add-intent.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +30,7 @@ const appRoutes: Routes = [
      {path: 'questions', component: TeacherQuestionsComponent, outlet: 'teacher'},
      {path: 'dashboard', component: TeacherDashboardComponent, outlet: 'teacher'},
      {path: 'chat', component: TeacherChatComponent, outlet: 'teacher'},
+     {path: 'students', component: TeacherStudentsComponent, outlet: 'teacher'},
     ]
 
     },
@@ -40,7 +45,11 @@ const appRoutes: Routes = [
     TeacherDashboardComponent,
     DialogGenericComponent,
     TeacherChatComponent,
-    ScrollTrackerDirective
+    ScrollTrackerDirective,
+    TeacherStudentsComponent,
+    DialogConversationsComponent,
+    DialogAddUserComponent,
+    DialogAddIntentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,10 @@ const appRoutes: Routes = [
 
   ],
   entryComponents: [
-    DialogGenericComponent
+    DialogGenericComponent,
+    DialogConversationsComponent,
+    DialogAddUserComponent,
+    DialogAddIntentComponent
   ],
   providers: [
     RacService

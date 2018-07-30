@@ -11,12 +11,14 @@ export class Strings {
     public static get getIntents(): string {return 'api/Intents'};
     public static get postIntents(): string {return 'api/insertIntent'};
 
-    //Answers
+    //Answers/Patterns
     public static get answers(): string {return 'api/Answers'};
     public static get deleteAnswer(): string {return 'api/deleteAnswer/'};// /id
+    public static get deletePattern(): string {return 'api/deletePattern/'};// /id
 
 
     //Users
+    public static get postUser(): string {return 'api/insertUser'};
     public static get getUsers(): string {return 'api/Users'};
     public static get getSingleUser(): string {return 'api/getSingleUser/'};// /id
 

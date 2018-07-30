@@ -11,13 +11,13 @@ export class RacService {
 
   constructor(private http: HttpClient) { }
 
-  //TODO: Implement GET from backend
+  // Implement GET from backend
   public getIntents(): Observable<Intent[]>{
     return this.http.get<Intent[]>(Strings.mainURL.concat(Strings.getIntents))
   }
 
-  //TODO: Implement POST from backend
-  public postAnswers(answers){
+  // Answers/Patterns
+  public postAnswersPatterns(answers){
     return this.http.post(Strings.mainURL.concat(Strings.postIntents), answers, { observe: 'response' });
   }
 
@@ -25,8 +25,22 @@ export class RacService {
     return this.http.delete(Strings.mainURL.concat(Strings.deleteAnswer + answerId),{ observe: 'response' })
   }
 
+  public deletePattern(patternId){
+    return this.http.delete(Strings.mainURL.concat(Strings.deleteAnswer + patternId),{ observe: 'response' })
+  }
+
+  //Users
+
+  public getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(Strings.mainURL.concat(Strings.getUsers));
+  }
+
   public getSingleUser(userID): Observable<User>{
     return this.http.get<User>(Strings.mainURL.concat(Strings.getSingleUser+userID));
+  }
+
+  public postUser(user){
+    return this.http.post(Strings.mainURL.concat(Strings.postUser), user, { observe: 'response' });
   }
 
 

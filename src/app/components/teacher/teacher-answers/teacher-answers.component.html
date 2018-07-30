@@ -29,7 +29,7 @@
         <div *ngIf="isAdding[indexIntent]" class="flex-row add-answer-field">
           <mat-form-field style="width: 100%">
             <mat-label>Adicionar resposta</mat-label>
-            <input [(ngModel)]="newResponse.response" matInput placeholder="Resposta" (keyup.enter)="addAnswerList[indexIntent]">
+            <input [(ngModel)]="newResponse.response" matInput placeholder="Resposta" (keyup.enter)="addAnswer(indexIntent)">
           </mat-form-field>
           <button (click)="addAnswer(indexIntent)" mat-icon-button color="primary" style="margin: auto;">
             <mat-icon aria-label="Example icon-button with a heart icon">send</mat-icon>
@@ -38,7 +38,7 @@
         <!--Botão AddPergunta-->
         <div class="add-answer-button flex-row">
           <span class="flex-spacer"></span>
-          <button (click)="isAdding[indexIntent] = true;" mat-button color="primary" style="margin: auto;">
+          <button (click)="changeEditing(indexIntent)" mat-button color="primary" style="margin: auto;">
             <span>Adicionar resposta</span>
             <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
           </button>

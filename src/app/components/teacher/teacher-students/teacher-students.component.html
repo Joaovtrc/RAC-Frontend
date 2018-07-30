@@ -1,0 +1,42 @@
+<div *ngIf="!loading" class="main-content-outlet flex-column mat-typography">
+  <span class="student" *ngFor="let student of students; last as last; ">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{student.name}}</mat-card-title>
+        <mat-card-subtitle>
+          <div>
+            <span>
+              {{student.username}}
+            </span>
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p style="font-size: 14px; margin-bottom: 8px;">Últimas conversas</p>
+
+        <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+
+          <span *ngFor="let conversation of student.conversations | slice:student.conversations.length - 2; last as last;">
+            <mat-chip style="width: auto" selected [color]="primary">
+              {{conversation.question}}
+            </mat-chip>
+            <mat-chip style="width: auto; align-self: flex-end;">
+              {{conversation.response.response}}
+            </mat-chip>
+          </span>
+
+        </mat-chip-list>
+        <p *ngIf="student.conversations.length == 0" style="font-size: 12px; margin: 6px;">Não há nenhum histórico de conversa com este aluno</p>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="openDialogStudent(student)" mat-button color="primary">Ver todo histórico de conversas</button>
+      </mat-card-actions>
+    </mat-card>
+  </span>
+
+  <button (click)="openDialogAddStudent()" class="fixed-fab" mat-fab matTooltip="Adicionar aluno" matTooltipPosition="left">
+    <mat-icon aria-label="Adicionar aluno">add</mat-icon>
+  </button>
+  
+</div>
