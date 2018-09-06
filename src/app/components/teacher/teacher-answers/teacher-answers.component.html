@@ -17,9 +17,6 @@
         <mat-list>
           <mat-list-item *ngFor="let answer of intent.responses; let indexAnswer = index">
             <p matLine> {{answer.response}} </p>
-            <button (click)="editAnswer(indexIntent,indexAnswer)" mat-icon-button color="accent" style="margin: auto;">
-                <mat-icon aria-label="Editar">edit</mat-icon>
-            </button>
             <button (click)="deleteAnswer(intent,answer)" mat-icon-button color="warn" style="margin: auto;">
                 <mat-icon aria-label="Deletar">delete</mat-icon>
             </button>

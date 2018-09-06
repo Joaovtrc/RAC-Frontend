@@ -16,7 +16,14 @@ export class RacService {
     return this.http.get<Intent[]>(Strings.mainURL.concat(Strings.getIntents))
   }
 
+  //Intent
+
+
   // Answers/Patterns
+  public postSingleIntent(intent){
+    return this.http.post(Strings.mainURL.concat(Strings.postSingleIntent), intent, { observe: 'response' });
+  }
+  
   public postAnswersPatterns(answers){
     return this.http.post(Strings.mainURL.concat(Strings.postIntents), answers, { observe: 'response' });
   }

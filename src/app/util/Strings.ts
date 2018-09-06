@@ -10,6 +10,8 @@ export class Strings {
     //Intents
     public static get getIntents(): string {return 'api/Intents'};
     public static get postIntents(): string {return 'api/insertIntent'};
+    public static get postSingleIntent(): string {return 'api/insertSingleIntent'};
+
 
     //Answers/Patterns
     public static get answers(): string {return 'api/Answers'};

@@ -22,7 +22,7 @@ import { DialogAddIntentComponent } from './components/dialogs/dialog-add-intent
 const appRoutes: Routes = [
   //Routes
   { path: '',
-    redirectTo: 'teacher',
+    redirectTo: '/teacher/(teacher:answers)',
     pathMatch: 'full'
   },
   {path: 'teacher', component: TeacherMainComponent, children: [

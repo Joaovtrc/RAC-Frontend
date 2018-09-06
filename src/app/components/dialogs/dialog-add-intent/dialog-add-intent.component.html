@@ -1,3 +1,39 @@
-<p>
-  dialog-add-intent works!
-</p>
+<h2 mat-dialog-title>Cadastrar pergunta/frases</h2>
+<mat-dialog-content>
+  
+  <mat-form-field>
+    <input [(ngModel)]="newIntent.tag" matInput placeholder="Título">
+  </mat-form-field>
+
+  <mat-list>
+    <mat-list-item *ngFor="let pattern of newIntent.patterns; let indexPattern = index">
+      <p matLine> {{pattern.pattern}} </p>
+
+
+      <button (click)="deletePattern(newIntent, pattern)" mat-icon-button color="warn" style="margin: auto;">
+        <mat-icon aria-label="Deletar">delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  <!--Input da resposta-->
+  <div class="flex-row">
+    <mat-form-field style="width: 100%">
+      <mat-label>Adicionar Pergunta ou Frase</mat-label>
+      <input [(ngModel)]="newPattern.pattern" matInput placeholder="Pergunta/Frase" (keyup.enter)="addPattern(indexIntent)">
+    </mat-form-field>
+    <button (click)="addPattern(indexIntent)" mat-icon-button color="primary" style="margin: auto;">
+      <mat-icon aria-label="Example icon-button with a heart icon">send</mat-icon>
+    </button>
+  </div>
+
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="addIntent()">Cadastrar</button>
+</mat-dialog-actions>

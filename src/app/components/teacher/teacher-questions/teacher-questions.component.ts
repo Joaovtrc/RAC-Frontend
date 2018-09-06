@@ -4,6 +4,7 @@ import { Intent } from '../../../models/intent';
 import { Pattern } from '../../../models/pattern';
 import { MatDialog } from '../../../../../node_modules/@angular/material';
 import { DialogGenericComponent } from '../../dialogs/dialog-generic/dialog-generic.component';
+import { DialogAddIntentComponent } from '../../dialogs/dialog-add-intent/dialog-add-intent.component';
 
 @Component({
   selector: 'app-teacher-questions',
@@ -24,7 +25,7 @@ export class TeacherQuestionsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadPatterns();
+    this.loadIntents();
   }
 
   changeEditing(indexIntent){
@@ -73,7 +74,7 @@ export class TeacherQuestionsComponent implements OnInit {
         if(pattern.id != -1){
           this.services.deletePattern(pattern.id).subscribe(res =>{
             if(res.status == 200){
-              this.loadPatterns();
+              this.loadIntents();
               console.log('deletado!');
             }else{
               console.log('erro!!');
@@ -88,13 +89,27 @@ export class TeacherQuestionsComponent implements OnInit {
     });
   }
 
-  loadPatterns(){
+  loadIntents(){
     this.loading=true;
     this.services.getIntents().subscribe(res =>{
       this.intents = res;
       console.log(this.intents);
       this.loading = false
     })
+  }
+
+  openDialogAddIntent(){
+    const dialogAddIntent = this.dialog.open(DialogAddIntentComponent, {
+      width: '80vw',
+      data: {}
+    });
+    
+    dialogAddIntent.afterClosed().subscribe(closedDialogRes => {
+      if(closedDialogRes){
+        this.loadIntents();
+      }
+
+    });
   }
 
 }
