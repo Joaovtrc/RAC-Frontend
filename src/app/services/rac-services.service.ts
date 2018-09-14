@@ -56,5 +56,11 @@ export class RacService {
     return this.http.post<Conversation>(Strings.mainURL.concat(Strings.chatBotResponse),question,{ observe: 'response' });
   }
 
+  //Conversations/Curatorship
+  public getCvsWithNoAnswer(): Observable<Conversation[]>{
+    return this.http.get<Conversation[]>(Strings.mainURL.concat(Strings.conversationWithNoAnswer));
+
+  }
+
 
 }

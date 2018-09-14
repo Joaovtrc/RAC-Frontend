@@ -27,4 +27,7 @@ export class Strings {
     //Chatbot
     public static get chatBotResponse(): string {return 'api/ChatBot/Response'};
 
+    //Conversation/Curatorship
+    public static get conversationWithNoAnswer(): string {return 'api/getAllCvsWithNoAnswer'};
+
 }

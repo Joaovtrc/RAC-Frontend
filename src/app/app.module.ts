@@ -17,6 +17,7 @@ import { TeacherStudentsComponent } from './components/teacher/teacher-students/
 import { DialogConversationsComponent } from './components/dialogs/dialog-conversations/dialog-conversations.component';
 import { DialogAddUserComponent } from './components/dialogs/dialog-add-user/dialog-add-user.component';
 import { DialogAddIntentComponent } from './components/dialogs/dialog-add-intent/dialog-add-intent.component';
+import { TeacherCuratorshipComponent } from './components/teacher/teacher-curatorship/teacher-curatorship.component';
 
 
 const appRoutes: Routes = [
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
      {path: 'dashboard', component: TeacherDashboardComponent, outlet: 'teacher'},
      {path: 'chat', component: TeacherChatComponent, outlet: 'teacher'},
      {path: 'students', component: TeacherStudentsComponent, outlet: 'teacher'},
+     {path: 'curatorship', component: TeacherCuratorshipComponent, outlet: 'teacher'},
     ]
 
     },
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     TeacherStudentsComponent,
     DialogConversationsComponent,
     DialogAddUserComponent,
-    DialogAddIntentComponent
+    DialogAddIntentComponent,
+    TeacherCuratorshipComponent
   ],
   imports: [
     BrowserModule,
