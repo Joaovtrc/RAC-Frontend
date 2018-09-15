@@ -18,6 +18,7 @@ import { DialogConversationsComponent } from './components/dialogs/dialog-conver
 import { DialogAddUserComponent } from './components/dialogs/dialog-add-user/dialog-add-user.component';
 import { DialogAddIntentComponent } from './components/dialogs/dialog-add-intent/dialog-add-intent.component';
 import { TeacherCuratorshipComponent } from './components/teacher/teacher-curatorship/teacher-curatorship.component';
+import { DialogCuratorshipComponent } from './components/dialogs/dialog-curatorship/dialog-curatorship.component';
 
 
 const appRoutes: Routes = [
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     DialogConversationsComponent,
     DialogAddUserComponent,
     DialogAddIntentComponent,
-    TeacherCuratorshipComponent
+    TeacherCuratorshipComponent,
+    DialogCuratorshipComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     DialogGenericComponent,
     DialogConversationsComponent,
     DialogAddUserComponent,
-    DialogAddIntentComponent
+    DialogAddIntentComponent,
+    DialogCuratorshipComponent
   ],
   providers: [
     RacService

@@ -61,6 +61,9 @@ export class RacService {
     return this.http.get<Conversation[]>(Strings.mainURL.concat(Strings.conversationWithNoAnswer));
 
   }
+  public curateConversation(idCv, idIntent){
+    return this.http.post(Strings.mainURL.concat(Strings.curateConversation+idCv+"/"+idIntent),{ observe: 'response' });
 
+  }
 
 }

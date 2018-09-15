@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, 
          MatListModule,MatCardModule,MatProgressSpinnerModule,MatFormFieldModule,
-         MatInputModule,MatDialogModule,MatChipsModule,MatSnackBarModule,MatTooltipModule} from '@angular/material';
+         MatInputModule,MatDialogModule,MatChipsModule,MatSnackBarModule,MatTooltipModule,
+         MatRadioModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatChipsModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatRadioModule
   ],
   declarations: [],
   exports: [
@@ -47,6 +49,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
     MatChipsModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatRadioModule
   ]
 })
 

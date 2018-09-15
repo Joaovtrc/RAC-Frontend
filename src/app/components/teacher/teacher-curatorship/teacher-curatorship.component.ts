@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { RacService } from '../../../services/rac-services.service';
 import { Conversation } from '../../../models/conversation';
 import { Intent } from '../../../models/intent';
+import { DialogCuratorshipComponent } from '../../dialogs/dialog-curatorship/dialog-curatorship.component';
 
 @Component({
   selector: 'app-teacher-curatorship',
@@ -19,16 +20,28 @@ export class TeacherCuratorshipComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.loadCvs()
+  }
+
+  loadCvs(){
     this.services.getCvsWithNoAnswer().subscribe(res =>{
       this.cvsWithNoAnswer = res;
-      console.log(this.cvsWithNoAnswer);
-      this.services.getIntents().subscribe(res =>{
-        this.intents = res;
-        console.log(this.intents);
         this.loading = false
-      })
-      
-    })
+    });
+  }
+
+  curateConversation(conversation: Conversation){
+    const dialogAddIntent = this.dialog.open(DialogCuratorshipComponent, {
+      data: {conversation}
+    });
+    
+    dialogAddIntent.afterClosed().subscribe(closedDialogRes => {
+      if(closedDialogRes){
+        this.loadCvs();
+      }
+
+    });  
+
   }
 
 }

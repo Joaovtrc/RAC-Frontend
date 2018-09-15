@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class Strings {
 
-    public static get mainURL(): string { return 'http://localhost:5000/'; }
+    public static get mainURL(): string { return 'http://127.0.0.1:5000/'; }
     public static get tokenName(): string { return 'currentTeacher'; }
 
     //Intents
@@ -29,5 +29,6 @@ export class Strings {
 
     //Conversation/Curatorship
     public static get conversationWithNoAnswer(): string {return 'api/getAllCvsWithNoAnswer'};
+    public static get curateConversation(): string {return 'api/curateConversation/'};//idCv/idIntent
 
 }

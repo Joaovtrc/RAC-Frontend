@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Direcionar pergunta/frase: {{data.conversation.question}}</h2>
+<mat-dialog-content>
+
+
+  <mat-radio-group class="flex-column intent-radio-group" [(ngModel)]="selectedIntent">
+    <mat-radio-button class="intent-radio-button" *ngFor="let intent of intents" [value]="intent">
+      {{intent.tag}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button (click)="curateConversation()">Cadastrar</button>
+</mat-dialog-actions>
