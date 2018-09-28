@@ -6,7 +6,7 @@
         <mat-card-subtitle>
           <div>
             <span>
-              
+
             </span>
           </div>
         </mat-card-subtitle>
@@ -14,12 +14,12 @@
       <mat-card-content>
 
         <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
-            <mat-chip style="width: auto" selected [color]="primary">
-              {{conversation.question}}
-            </mat-chip>
-            <mat-chip style="width: auto; align-self: flex-end">
-              {{conversation.response.response}}
-            </mat-chip>
+          <mat-chip style="width: auto" selected [color]="primary">
+            {{conversation.question}}
+          </mat-chip>
+          <mat-chip style="width: auto; align-self: flex-end">
+            {{conversation.response.response}}
+          </mat-chip>
         </mat-chip-list>
       </mat-card-content>
       <mat-card-actions>
@@ -27,6 +27,9 @@
       </mat-card-actions>
     </mat-card>
   </span>
-
   
+  <button matTooltip="Treinar chatbot" matTooltipPosition="left" (click)="trainChatbot()" class="fixed-fab" mat-fab>
+    <mat-icon aria-label="Treinar chatbot">fitness_center</mat-icon>
+  </button>
+
 </div>

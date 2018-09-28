@@ -1,0 +1,11 @@
+.main-content {
+  padding: 16px;
+}
+
+.dashboard-card {
+  padding: 16px;
+}
+
+mat-card{
+  height: 100%;
+}

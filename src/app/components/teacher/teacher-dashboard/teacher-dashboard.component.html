@@ -1,3 +1,50 @@
-<p>
-  teacher-dashboard works!
-</p>
+<div *ngIf="!loading" class="main-content row">
+
+  <div class="dashboard-card col-xs-12  col-sm-12 col-md-6 col-lg-6 ">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Crianças com mais perguntas</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let user of usersMostConversations | slice:0:5; let userIndex = index;" role="listitem">
+            {{(userIndex + 1) + " - " +user.name + ": " + user.conversations.length + " perguntas" }}
+          </mat-list-item>
+
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dashboard-card col-xs-12  col-sm-12 col-md-6 col-lg-6 ">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Perguntas/frases mais realizadas</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item *ngFor="let intent of intentsSorted | slice:0:5; let intentIndex = index;" role="listitem">
+              {{(intentIndex + 1) + " - " + intent}}
+            </mat-list-item>
+  
+          </mat-list>
+  
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  <span class="col-6 dashboard-card">
+    <mat-card>Simple card</mat-card>
+  </span>
+  <span class="col-6 dashboard-card">
+    <mat-card>Simple card</mat-card>
+  </span>
+  <span class="col-6 dashboard-card">
+    <mat-card>Simple card</mat-card>
+  </span>
+
+</div>
+<mat-spinner *ngIf="loading" style="margin: auto; top: 50%;"></mat-spinner>

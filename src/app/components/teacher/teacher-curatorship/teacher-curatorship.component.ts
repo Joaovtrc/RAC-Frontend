@@ -4,6 +4,7 @@ import { RacService } from '../../../services/rac-services.service';
 import { Conversation } from '../../../models/conversation';
 import { Intent } from '../../../models/intent';
 import { DialogCuratorshipComponent } from '../../dialogs/dialog-curatorship/dialog-curatorship.component';
+import { DialogGenericComponent } from '../../dialogs/dialog-generic/dialog-generic.component';
 
 @Component({
   selector: 'app-teacher-curatorship',
@@ -42,6 +43,27 @@ export class TeacherCuratorshipComponent implements OnInit {
 
     });  
 
+  }
+
+
+  trainChatbot(){
+    const dialogRef = this.dialog.open(DialogGenericComponent, {
+      width: '250px',
+      data: {Title: 'Treinar chatbot',
+             Description: 'Tem certeza que deseja treinar o chatbot? \r\n O sistema se tornará inutilizável até o fim do treinamento.',
+             AcceptButton: "Treinar",
+             CancelButton: "Cancelar"}
+    });
+
+    dialogRef.afterClosed().subscribe(closedDialogRes => {
+      if(closedDialogRes){
+
+      }else{
+
+      }
+  
+    });
+  
   }
 
 }
