@@ -10,8 +10,7 @@ import { Intent } from '../../../models/intent';
   styleUrls: ['./teacher-dashboard.component.css']
 })
 export class TeacherDashboardComponent implements OnInit {
-
-  constructor(private services: RacService) { }
+  
   loading: boolean = true
   users: Array<User> = new Array<User>();
 
@@ -19,8 +18,15 @@ export class TeacherDashboardComponent implements OnInit {
   allIntents: Array<Intent> = new Array<Intent>();
   intentsSorted;
 
+  avgCvsPerDay = 0;
+  dateWithMostCvs: any;
 
   usersMostConversations : Array<User>;
+
+
+  constructor(private services: RacService) { }
+
+
 
   ngOnInit() {
     this.services.getUsers().subscribe(res =>{
@@ -55,7 +61,7 @@ export class TeacherDashboardComponent implements OnInit {
 
       console.log(this.intentsSorted);
       
-
+      this.averagePerDay()
       this.loading = false;
       
     })
@@ -85,5 +91,43 @@ export class TeacherDashboardComponent implements OnInit {
     }
   }
 
+  averagePerDay(){
+    var dateArrKeyHolder = [];
+    var dateArr = [];
+    this.allConversations.forEach(function(item){
+
+      var splitDate = item.date.toString().split("T");
+
+      dateArrKeyHolder[splitDate[0]] = dateArrKeyHolder[splitDate[0]]||{};
+      var obj = dateArrKeyHolder[splitDate[0]];
+      if(Object.keys(obj).length == 0)
+      dateArr.push(obj);
+      
+      obj.date = item.date.toString().split("T")[0];
+      obj.conversations  = obj.conversations || [];
+      
+      obj.conversations.push({id:item.id, date: item.date});
+
+    });
+
+     
+    
+    dateArr.forEach(date => {
+      this.avgCvsPerDay += date.conversations.length;
+      if(this.dateWithMostCvs == undefined){
+        this.dateWithMostCvs = date;
+      }else if(date.conversations.length > this.dateWithMostCvs.conversations.length)
+        this.dateWithMostCvs = date
+    });
+
+    
+
+    this.avgCvsPerDay = this.avgCvsPerDay / dateArr.length;
+
+    console.log(this.dateWithMostCvs);
+    console.log(this.avgCvsPerDay)
+    console.log(dateArr);
+  }
+  
 
 }

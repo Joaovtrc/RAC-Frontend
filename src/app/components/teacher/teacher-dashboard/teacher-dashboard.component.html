@@ -19,32 +19,44 @@
   </div>
 
   <div class="dashboard-card col-xs-12  col-sm-12 col-md-6 col-lg-6 ">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Perguntas/frases mais realizadas</mat-card-title>
-          <mat-card-subtitle></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-list role="list">
-            <mat-list-item *ngFor="let intent of intentsSorted | slice:0:5; let intentIndex = index;" role="listitem">
-              {{(intentIndex + 1) + " - " + intent}}
-            </mat-list-item>
-  
-          </mat-list>
-  
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Perguntas/frases mais realizadas</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let intent of intentsSorted | slice:0:5; let intentIndex = index;" role="listitem">
+            {{(intentIndex + 1) + " - " + intent}}
+          </mat-list-item>
 
-  <span class="col-6 dashboard-card">
-    <mat-card>Simple card</mat-card>
-  </span>
-  <span class="col-6 dashboard-card">
-    <mat-card>Simple card</mat-card>
-  </span>
-  <span class="col-6 dashboard-card">
-    <mat-card>Simple card</mat-card>
-  </span>
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div class="dashboard-card col-xs-12  col-sm-12 col-md-6 col-lg-6 ">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Perguntas por dia</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            {{"Média por dia: "+ (avgCvsPerDay | number: '1.0-0') + " perguntas" }}
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            {{"Dia com mais perguntas: "+ (dateWithMostCvs.date | date: 'dd/MM/yyyy') + " - " + dateWithMostCvs.conversations.length + " perguntas"}}
+          </mat-list-item>
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
 
 </div>
 <mat-spinner *ngIf="loading" style="margin: auto; top: 50%;"></mat-spinner>
