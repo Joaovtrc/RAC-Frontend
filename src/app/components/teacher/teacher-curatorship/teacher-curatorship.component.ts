@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { RacService } from '../../../services/rac-services.service';
 import { Conversation } from '../../../models/conversation';
 import { Intent } from '../../../models/intent';
@@ -18,7 +18,8 @@ export class TeacherCuratorshipComponent implements OnInit {
   intents: Array<Intent> = new Array<Intent>();
 
   constructor(private services: RacService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loadCvs()
@@ -49,19 +50,26 @@ export class TeacherCuratorshipComponent implements OnInit {
   trainChatbot(){
     const dialogRef = this.dialog.open(DialogGenericComponent, {
       width: '250px',
-      data: {Title: 'Treinar chatbot',
-             Description: 'Tem certeza que deseja treinar o chatbot? \r\n O sistema se tornará inutilizável até o fim do treinamento.',
+      data: {Title: 'Treinar RAC',
+             Description: 'Tem certeza que deseja treinar o RAC?',
              AcceptButton: "Treinar",
              CancelButton: "Cancelar"}
     });
 
     dialogRef.afterClosed().subscribe(closedDialogRes => {
       if(closedDialogRes){
+        this.services.trainChatbot().subscribe(res=>{
+          if(res.status == 200){
+            this.snackBar.open("Treinamento concluído com sucesso.", "", { duration: 1500, });
 
-      }else{
+          }else{
+            this.snackBar.open("Houve um problema no treinamento, por favor tente novamente.", "", { duration: 1500, });
 
+          }
+
+          
+        });
       }
-  
     });
   
   }

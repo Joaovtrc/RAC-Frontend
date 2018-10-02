@@ -26,6 +26,7 @@ export class Strings {
 
     //Chatbot
     public static get chatBotResponse(): string {return 'api/ChatBot/Response'};
+    public static get trainChatbot(): string {return 'api/ChatBot/Train'};
 
     //Conversation/Curatorship
     public static get conversationWithNoAnswer(): string {return 'api/getAllCvsWithNoAnswer'};
