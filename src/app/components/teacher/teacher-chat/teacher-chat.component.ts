@@ -18,7 +18,7 @@ export class TeacherChatComponent implements OnInit {
     public snackBar: MatSnackBar,) { }
 
   ngOnInit() {
-    this.services.getSingleUser(1).subscribe(res =>{
+    this.services.getSingleUser(6).subscribe(res =>{
       this.user = res;
       console.log(this.user);
       this.loading = false;
@@ -32,7 +32,7 @@ export class TeacherChatComponent implements OnInit {
       let question = {};
       question['question'] = this.newQuestion.replace(/['!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_`{|}~']/g,"").replace(/\s{2,}/g," ");
       ;
-      question['idUser'] = 1;  
+      question['idUser'] = 6;  
       this.newQuestion = ''; 
       this.services.chatBotResponse(question).subscribe(res =>{
         if(res.status == 200){

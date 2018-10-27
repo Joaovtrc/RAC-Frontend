@@ -33,16 +33,30 @@ export class DialogCuratorshipComponent implements OnInit {
 
 
   curateConversation(){
-    this.services.curateConversation(this.data.conversation.id,this.selectedIntent.id).subscribe(res =>{
-      console.log(res)
-      let resp: any = res;
-      if(resp.status == 200){
-        this.snackBar.open("Pergunta ou frase redirecionada com sucesso.", "", { duration: 1500, });
-          this.dialogRef.close(true);
-      }else{
-        this.snackBar.open("Ocorreu um problema, tente novamente.", "", { duration: 1500, });
-      }
-    });
+    if(!this.data.lowClass){
+      this.services.curateConversation(this.data.conversation.id,this.selectedIntent.id).subscribe(res =>{
+        console.log(res)
+        let resp: any = res;
+        if(resp.status == 200){
+          this.snackBar.open("Pergunta ou frase redirecionada com sucesso.", "", { duration: 1500, });
+            this.dialogRef.close(true);
+        }else{
+          this.snackBar.open("Ocorreu um problema, tente novamente.", "", { duration: 1500, });
+        }
+      });
+    }else{
+      this.services.curateConversationWLowClass(this.data.conversation.id,this.selectedIntent.id).subscribe(res =>{
+        console.log(res)
+        let resp: any = res;
+        if(resp.status == 200){
+          this.snackBar.open("Pergunta ou frase redirecionada com sucesso.", "", { duration: 1500, });
+            this.dialogRef.close(true);
+        }else{
+          this.snackBar.open("Ocorreu um problema, tente novamente.", "", { duration: 1500, });
+        }
+      });
+    }
+    
   }
 
 }

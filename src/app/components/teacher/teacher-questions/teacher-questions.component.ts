@@ -104,8 +104,8 @@ export class TeacherQuestionsComponent implements OnInit {
       data: {}
     });
     
-    dialogAddIntent.afterClosed().subscribe(closedDialogRes => {
-      if(closedDialogRes){
+    dialogAddIntent.afterClosed().subscribe(data => {
+      if(data.closedDialogRes){
         this.loadIntents();
       }
 

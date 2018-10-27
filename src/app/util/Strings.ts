@@ -9,6 +9,7 @@ export class Strings {
 
     //Intents
     public static get getIntents(): string {return 'api/Intents'};
+    public static get getIntentByName(): string {return 'api/IntentByName/'};//tagname
     public static get postIntents(): string {return 'api/insertIntent'};
     public static get postSingleIntent(): string {return 'api/insertSingleIntent'};
 
@@ -30,6 +31,9 @@ export class Strings {
 
     //Conversation/Curatorship
     public static get conversationWithNoAnswer(): string {return 'api/getAllCvsWithNoAnswer'};
+    public static get getAllCvsWithLowClassify(): string {return 'api/getAllCvsWithLowClassify'};
+    public static get curateConversationWCorrectAnswer(): string {return 'api/curateConversationWCorrectAnswer/'};//id
+    public static get curateConversationWLowClass(): string {return 'api/curateConversationWLowClass/'};//id    
     public static get curateConversation(): string {return 'api/curateConversation/'};//idCv/idIntent
 
 }

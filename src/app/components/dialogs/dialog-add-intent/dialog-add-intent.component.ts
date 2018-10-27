@@ -27,7 +27,12 @@ export class DialogAddIntentComponent implements OnInit {
     this.services.postSingleIntent(this.newIntent).subscribe(res =>{
       if(res.status == 200){
         this.snackBar.open("Pergunta/frase criada com sucesso.", "", { duration: 1500, });
-        this.dialogRef.close(true);
+        this.dialogRef.close(
+          {
+            "closedDialogRes" : true,
+            "intent": this.newIntent
+          }
+        );
 
       }else{
         this.snackBar.open("Ocorreu um problema, tente novamente.", "", { duration: 1500, });

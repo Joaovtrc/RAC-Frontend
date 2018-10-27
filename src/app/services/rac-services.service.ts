@@ -18,10 +18,16 @@ export class RacService {
 
   //Intent
 
+ 
 
   // Answers/Patterns
   public postSingleIntent(intent){
     return this.http.post(Strings.mainURL.concat(Strings.postSingleIntent), intent, { observe: 'response' });
+  }
+
+  getIntentByName(tagName): Observable<Intent>{
+    return this.http.get<Intent>(Strings.mainURL.concat(Strings.getIntentByName)+tagName)
+
   }
   
   public postAnswersPatterns(answers){
@@ -65,9 +71,24 @@ export class RacService {
     return this.http.get<Conversation[]>(Strings.mainURL.concat(Strings.conversationWithNoAnswer));
 
   }
+
+  public getCvsWithLowClassify(): Observable<Conversation[]>{
+    return this.http.get<Conversation[]>(Strings.mainURL.concat(Strings.getAllCvsWithLowClassify));
+
+  }
+
   public curateConversation(idCv, idIntent){
     return this.http.post(Strings.mainURL.concat(Strings.curateConversation+idCv+"/"+idIntent),{ observe: 'response' });
 
   }
 
+  public curateConversationWCorrectAnswer(idCv){
+    return this.http.post(Strings.mainURL.concat(Strings.curateConversationWCorrectAnswer+idCv),{ observe: 'response' });
+
+  }
+  public curateConversationWLowClass(idCv, idIntent){
+    return this.http.post(Strings.mainURL.concat(Strings.curateConversationWLowClass+idCv+"/"+idIntent),{ observe: 'response' });
+
+  }
+  
 }

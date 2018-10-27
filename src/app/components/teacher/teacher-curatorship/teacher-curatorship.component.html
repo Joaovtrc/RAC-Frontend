@@ -1,35 +1,91 @@
+<mat-spinner *ngIf="loading" style="margin: auto; top: 50%;"></mat-spinner>
 <div *ngIf="!loading" class="main-content-outlet flex-column mat-typography">
-  <span class="conversation" *ngFor="let conversation of cvsWithNoAnswer; last as last; ">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>{{conversation.user.name}}</mat-card-title>
-        <mat-card-subtitle>
-          <div>
-            <span>
+  <mat-tab-group class="teacherCuratorship">
+    <mat-tab label="Perguntas sem resposta">
+      <ng-template matTabContent>
+        <span class="conversation" *ngFor="let conversation of cvsWithNoAnswer; last as last; ">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{conversation.user.name}}</mat-card-title>
+              <mat-card-subtitle>
+                <div>
+                  <span>
 
-            </span>
-          </div>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
+                  </span>
+                </div>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
 
-        <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
-          <mat-chip style="width: auto" selected [color]="primary">
-            {{conversation.question}}
-          </mat-chip>
-          <mat-chip style="width: auto; align-self: flex-end">
-            {{conversation.response.response}}
-          </mat-chip>
-        </mat-chip-list>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="primary" (click)="curateConversation(conversation)">Direcionar pergunta/frase</button>
-      </mat-card-actions>
-    </mat-card>
-  </span>
-  
-  <button matTooltip="Treinar chatbot" matTooltipPosition="left" (click)="trainChatbot()" class="fixed-fab" mat-fab>
-    <mat-icon aria-label="Treinar chatbot">fitness_center</mat-icon>
+              <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+                <mat-chip style="width: auto" selected [color]="primary">
+                  {{conversation.question}}
+                </mat-chip>
+                <mat-chip style="width: auto; align-self: flex-end">
+                  {{conversation.response.response}}
+                </mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="primary" (click)="curateConversation(conversation, true)">Direcionar a uma
+                pergunta/frase existente</button>
+              <button mat-button color="primary" (click)="curateConversation(conversation, false)">Direcionar a uma
+                nova
+                pergunta/frase</button>
+            </mat-card-actions>
+          </mat-card>
+        </span>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Perguntas com dúvida">
+      <ng-template matTabContent>
+        <span class="conversation" *ngFor="let conversation of cvsWithLowClass; last as last; ">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{conversation.user.name}}</mat-card-title>
+              <mat-card-subtitle>
+                <div>
+                  <span>
+
+                  </span>
+                </div>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+
+              <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+                <mat-chip style="width: auto" selected [color]="primary">
+                  {{conversation.question}}
+                </mat-chip>
+                <mat-chip style="width: auto; align-self: flex-end">
+                  {{conversation.response.response}}
+                </mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="primary" (click)="curateConversationWLowClass(conversation, true, false)">Respondeu
+                corretamente</button>
+              <button mat-button color="primary" [matMenuTriggerFor]="menu">Direcionar a uma pergunta/frase</button>
+              <mat-menu #menu="matMenu">
+                <button mat-button  (click)="curateConversationWLowClass(conversation,false, true)">Pergunta/frase
+                  existente</button>
+                <button mat-button (click)="curateConversationWLowClass(conversation,false, false)">Nova
+                  pergunta/frase</button>
+              </mat-menu>
+
+            </mat-card-actions>
+          </mat-card>
+        </span>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+  <button [disabled]="loadingTraining" matTooltip="Treinar chatbot" matTooltipPosition="left" (click)="trainChatbot()"
+    class="fixed-fab" mat-fab>
+    <mat-spinner *ngIf="loadingTraining" diameter="24" style="margin: auto"></mat-spinner>
+    <mat-icon *ngIf="!loadingTraining" aria-label="Treinar chatbot">fitness_center</mat-icon>
   </button>
 
 </div>
